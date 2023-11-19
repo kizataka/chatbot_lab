@@ -16,6 +16,12 @@ https://chatbot-for-lab.onrender.com
 ## 使い方  
 デモ動画掲載  
 
+[![Python](https://img.shields.io/badge/Python-3.9.8-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28.2-FF4B4B?logo=Streamlit&logoColor=white)](https://streamlit.io/)
+[![SQLite](https://img.shields.io/badge/SQLite-3.36-003B57?logo=sqlite&logoColor=white)](https://www.sqlite.org/index.html)
+[![Poetry](https://img.shields.io/badge/Poetry-1.1.12-60A5FA?logo=Poetry&logoColor=white)](https://python-poetry.org/)
+
 ## 使用技術一覧  
 **バックエンド**: Python 3.9.8 / FastAPI 0.104.1  
 
