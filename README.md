@@ -55,5 +55,7 @@ https://chatbot-for-lab.onrender.com
 ◆ ファイル共有機能
 - PDFファイルのアップロード機能
 - 資料共有データの取得 / 作成 / 削除機能
-- PDFファイルのダウンロード機能
+- PDFファイルのダウンロード機能  
 
+## ER図  
+<img width="734" alt="ER図_chatbot_for_lab" src="https://github.com/kizataka/chatbot_lab/assets/112063667/4cfd1195-96d8-4d01-81f6-eb0a5d2c5131">
