@@ -1,5 +1,3 @@
-# 研究室用ChatBot
-
 <img width="963" alt="ヘッダー画像" src="https://github.com/kizataka/chatbot_lab/assets/112063667/30ddd113-f76c-4c38-b436-8f2c920717b8">
 
 [![Python](https://img.shields.io/badge/Python-v3.9.8-3776AB?logo=python&logoColor=3776AB)](https://www.python.org/downloads/)
@@ -8,9 +6,7 @@
 [![SQLite](https://img.shields.io/badge/SQLite-gray?logo=sqlite&logoColor=003B57)](https://www.sqlite.org/index.html)
 [![Poetry](https://img.shields.io/badge/Poetry-gray?logo=Poetry&logoColor=60A5FA)](https://python-poetry.org/)
 
-## サイト概要
-研究室内の資料をChatGPTに学習させて研究関連の知識に特化させ、その内容について質問することができるチャットボットです。  
-
+## 概要 
 ### ▼ サイトURL  
 https://chatbot-for-lab.onrender.com  
 
