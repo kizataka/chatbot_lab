@@ -26,21 +26,9 @@ https://chatbot-for-lab.onrender.com
 これらの課題を解決して研究活動を進めやすくなれればいいなと思い、研究室専用のチャットボットを作成しました。
 
 ## 使い方  
-<table>
-  <tr>
-    <th style="text-align: center">チャットと履歴の閲覧</th>
-    <th style="text-align: center">資料共有</th>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/kizataka/chatbot_lab/assets/112063667/e042399e-3ba6-43b2-9aa8-13b94751b083" alt="チャットと履歴の閲覧" />チャット名を入力してからチャットを開始します。チャット内容の履歴の閲覧と削除はHistoryページで確認できます。</td>
-    <td><img src="https://github.com/kizataka/chatbot_lab/assets/112063667/8ac1a797-f841-4449-b32a-9e91483c886c" alt="資料共有" />資料をアップロードすることで資料を共有することができます。</td>
-  </tr>
-</table>
 
-| チャットと履歴閲覧 |
-| ---- |
-| ![チャットと履歴閲覧画面](https://github.com/kizataka/chatbot_lab/assets/112063667/e042399e-3ba6-43b2-9aa8-13b94751b083) |
-| チャット名を入力してからチャットを開始します。チャット内容の履歴の閲覧と削除はHistoryページで確認できます。 |
+
+![チャットと履歴閲覧](/app_view/app_demo_chat_history.gif)
 
 
 ## 使用技術一覧  
