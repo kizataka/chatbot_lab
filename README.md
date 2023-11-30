@@ -37,6 +37,11 @@ https://chatbot-for-lab.onrender.com
   </tr>
 </table>
 
+| チャットと履歴閲覧 |
+| ---- |
+| ![チャットと履歴閲覧画面](https://github.com/kizataka/chatbot_lab/assets/112063667/e042399e-3ba6-43b2-9aa8-13b94751b083) |
+| チャット名を入力してからチャットを開始します。チャット内容の履歴の閲覧と削除はHistoryページで確認できます。 |
+
 
 ## 使用技術一覧  
 **バックエンド**: Python 3.9.8 / FastAPI 0.104.1  
