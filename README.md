@@ -1,15 +1,17 @@
-# 研究室専用ChatBot
+# 研究室用ChatBot
 
-[![Python](https://img.shields.io/badge/Python-3.9.8-3776AB?logo=python&logoColor=3776AB)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.85.1-009688?logo=fastapi&logoColor=009688)](https://fastapi.tiangolo.com/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28.2-FF4B4B?logo=Streamlit&logoColor=FF4B4B)](https://streamlit.io/)
-[![SQLite](https://img.shields.io/badge/SQLite-3.36-003B57?logo=sqlite&logoColor=003B57)](https://www.sqlite.org/index.html)
-[![Poetry](https://img.shields.io/badge/Poetry-1.1.12-60A5FA?logo=Poetry&logoColor=60A5FA)](https://python-poetry.org/)
+<img width="963" alt="ヘッダー画像" src="https://github.com/kizataka/chatbot_lab/assets/112063667/30ddd113-f76c-4c38-b436-8f2c920717b8">
 
-## サービス概要
+[![Python](https://img.shields.io/badge/Python-v3.9.8-3776AB?logo=python&logoColor=3776AB)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-v0.85.1-009688?logo=fastapi&logoColor=009688)](https://fastapi.tiangolo.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-v1.28.2-FF4B4B?logo=Streamlit&logoColor=FF4B4B)](https://streamlit.io/)
+[![SQLite](https://img.shields.io/badge/SQLite-gray?logo=sqlite&logoColor=003B57)](https://www.sqlite.org/index.html)
+[![Poetry](https://img.shields.io/badge/Poetry-gray?logo=Poetry&logoColor=60A5FA)](https://python-poetry.org/)
+
+## サイト概要
 研究室内の資料をChatGPTに学習させて研究関連の知識に特化させ、その内容について質問することができるチャットボットです。  
 
-### ▼ サービスURL  
+### ▼ サイトURL  
 https://chatbot-for-lab.onrender.com  
 
 ### ▼ 紹介記事(Qiita)
