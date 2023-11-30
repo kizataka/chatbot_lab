@@ -28,7 +28,7 @@ https://chatbot-for-lab.onrender.com
 ## 使い方  
 
 
-![チャットと履歴閲覧](/app_view/app_demo_chat_history.gif)
+![チャットと履歴閲覧](/app_view/demo_chat_history.gif)
 
 
 ## 使用技術一覧  
