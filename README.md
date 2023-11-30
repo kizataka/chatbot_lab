@@ -73,4 +73,4 @@ https://chatbot-for-lab.onrender.com
 - PDFファイルのダウンロード機能  
 
 ## ER図  
-<img width="734" alt="ER図_chatbot_for_lab" src="https://github.com/kizataka/chatbot_lab/assets/112063667/4cfd1195-96d8-4d01-81f6-eb0a5d2c5131">
+<img width="773" alt="ER図" src="https://github.com/kizataka/chatbot_lab/assets/112063667/684ad2f2-dbeb-43d4-991c-24aff4bfbcab">
