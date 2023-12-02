@@ -63,8 +63,13 @@ async def create_file_item(
     description: str = Form(...),
     db: Session = Depends(get_db)
 ):
-    # ここにファイルを保存し、データベースに情報を保存するロジックを実装
-    file_location = f'files_{file.filename}'
+    # # ローカルのDBにファイルを保存
+    # file_location = f'files_{file.filename}'
+    # with open(file_location, 'wb') as file_object:
+    #     file_object.write(await file.read())
+
+    # Render.comのディスク内にファイルを保存
+    file_location = f'/var/lib/data/files_{file.filename}'
     with open(file_location, 'wb') as file_object:
         file_object.write(await file.read())
     
