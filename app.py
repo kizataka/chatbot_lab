@@ -14,7 +14,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.schema import (SystemMessage, HumanMessage, AIMessage)
 
 # backend_url = 'http://127.0.0.1:8000'  # ローカル用
-backend_url = 'https://chatbot-lab-backend.onrender.com'  # デプロイ用
+backend_url = 'https://chatbot-lab-backend.onrender.com'  # 本番用
 
 # 環境変数の読み込み
 load_dotenv()
@@ -29,20 +29,20 @@ def main():
     )
 
     # ページタイトル
-    st.markdown('# 研究室専用ChatBot')
+    st.markdown('# 研究室用ChatBot')
     st.write('')
 
     # ページ構成
     selected = option_menu(
         menu_title=None,
-        options=["chats", "history", "files"], 
+        options=["Chat", "History", "Files"], 
         icons=['chat', 'book', "list-task"], 
         menu_icon="cast",
         default_index=0,
         orientation="horizontal")
     
     # 'chats'ページ
-    if selected == 'chats':
+    if selected == 'Chat':
         st.markdown('## チャットページ')
         st.write('ここではpdfファイルをアップロードして独自のチャットボットを作成することができます')
         st.write('複数のpdfファイルをアップロードし、学習させることができます')
@@ -53,24 +53,25 @@ def main():
         chat_name_input = st.text_input('チャットの名前を入力してください:', key='chat_name')
 
         if chat_name_input:
-            chat_name_response = requests.get(f'{backend_url}/chat_sessions/')
-            if chat_name_response.status_code == 200:
-                existing_sessions = chat_name_response.json()
-                # チャット名の重複確認
-                if any(chat_name_input == session['chat_name'] for session in existing_sessions):
-                    st.warning('このチャット名は既に使用されています。別の名前を入力してください。')
-                    st.stop()
+            if 'chat_name' not in st.session_state:
+                chat_name_response = requests.get(f'{backend_url}/chat_sessions/')
+                if chat_name_response.status_code == 200:
+                    existing_sessions = chat_name_response.json()
+                    # チャット名の重複確認
+                    if any(chat_name_input == session['chat_name'] for session in existing_sessions):
+                        st.warning('このチャット名は既に使用されています。別の名前を入力してください。')
+                        st.stop()
+                    else:
+                        if 'chat_name' not in st.session_state or st.session_state['chat_name'] != chat_name_input:
+                            st.session_state['chat_name'] = chat_name_input
                 else:
-                    if 'chat_name' not in st.session_state or st.session_state['chat_name'] != chat_name_input:
-                        st.session_state['chat_name'] = chat_name_input
-            else:
-                st.error('チャット履歴の取得に失敗しました')
+                    st.error('チャット履歴の取得に失敗しました')
 
-        elif not chat_name_input:
+            chat_name = st.session_state['chat_name']
+
+        else:
             st.warning('チャットを開始する前に、チャット名を入力してください')
             st.stop()
-
-        chat_name = st.session_state.get('chat_name', None)
 
         # ファイルアップロード
         uploaded_files = st.file_uploader(
@@ -104,36 +105,34 @@ def main():
 
                 if chat_name not in st.session_state:
                     st.session_state[chat_name] = [
-                        SystemMessage(content='You are a helpful assistant.')
+                        SystemMessage(content='何でも聞いてね！')
                     ]
 
                 # チャット画面の構成
                 container = st.container()
                 with container:
+                    # メッセージ入力とメッセージ送信ボタンの実装
                     with st.form(key='my_form', clear_on_submit=True):
                         user_input = st.text_area(label='Message: ', key='input', height=100)
-                        submit_button = st.form_submit_button(label='Send')
+                        submit_button = st.form_submit_button(label='送信')
 
                     if submit_button and user_input:
-                        if 'session_id' not in st.session_state:
 
-                            # チャット履歴の作成
+                        # session_idがすでにあるかどうかの確認
+                        if 'session_id' not in st.session_state or not st.session_state['session_id']:
                             session_response = requests.post(f'{backend_url}/chat_sessions/', json={
                                 'chat_name': chat_name
                             })
-
+                        
                             if session_response.status_code == 200:
                                 session_data = session_response.json()
-                                # session_dataのidをsession_idとして保持
-                                st.session_state['session_id'] = session_data['id'] 
+                                st.session_state['session_id'] = session_data['id']
                             else:
                                 st.error('セッションを取得できませんでした。ステータスコード： {}'.format(session_response.status_code))
-                                st.text('レスポンスボディ：')
                                 st.write(session_response.text)
-                                return
-                            
-                        # 保持しているsession_idを変数に格納
-                        session_id = st.session_state['session_id']
+
+                        # session_idを取得
+                        session_id = st.session_state.get('session_id')
 
                         # ユーザー側のチャット内容を保存
                         post_response = requests.post(f'{backend_url}/chat_messages/', json={
@@ -163,12 +162,6 @@ def main():
                                 st.error('アシスタントのメッセージの保存に失敗しました')
                                 st.json(assistant_response.json())
 
-                            # chat_nameとしてチャット内容を保存
-                            requests.post(f'{backend_url}/chat_messages/', json={
-                                'chat_name': chat_name,
-                                'content': pdf_response,
-                                'sender': 'assistant'
-                            })
                         else:
                             st.error('メッセージの保存に失敗しました。')
                             st.json(post_response.json())
@@ -184,10 +177,10 @@ def main():
                                 st.markdown(message.content)
                         else:
                             st.write(f"System message: {message.content}") 
-
+    
 
     # 'history'ページ
-    elif selected == 'history':
+    elif selected == 'History':
         st.markdown('## チャット履歴ページ')
         st.write('ここでは過去のチャットを閲覧することができます')
         st.write('')
@@ -227,7 +220,7 @@ def main():
             st.error('チャットセッションの取得に失敗しました')
 
     # 'files'ページ
-    elif selected == 'files':
+    elif selected == 'Files':
         st.markdown('## 研究資料共有ページ')
         st.write('ここでは研究に関する資料を共有することができます')
         st.write('チャットボットの作成に必要なファイルがあればこちらからダウンロードすることができます')
