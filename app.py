@@ -100,7 +100,7 @@ def main():
                 # 文章のベクトル化
                 index = VectorstoreIndexCreator(
                     vectorstore_cls=Chroma,
-                    embedding=OpenAIEmbeddings(),
+                    embedding=OpenAIEmbeddings(model="gpt-3.5-turbo"),
                 ).from_documents(docs)
 
                 if chat_name not in st.session_state:
