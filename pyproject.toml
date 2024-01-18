@@ -24,6 +24,7 @@ uvicorn = "^0.24.0.post1"
 python-multipart = "^0.0.6"
 typing-inspect = "0.8.0"
 typing-extensions = "4.5.0"
+streamlit-chat = "^0.1.1"
 
 
 [build-system]

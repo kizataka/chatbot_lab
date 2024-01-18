@@ -2647,6 +2647,20 @@ watchdog = {version = ">=2.1.5", markers = "platform_system != \"Darwin\""}
 snowflake = ["snowflake-connector-python (>=2.8.0)", "snowflake-snowpark-python (>=0.9.0)"]
 
 [[package]]
+name = "streamlit-chat"
+version = "0.1.1"
+description = "A streamlit component, to make chatbots"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "streamlit-chat-0.1.1.tar.gz", hash = "sha256:e5911c8e3d5bbdd444782a0eb46a5f0cf24247124eb165bcc2e759540767ac3c"},
+    {file = "streamlit_chat-0.1.1-py3-none-any.whl", hash = "sha256:bec918a6ff9d24fbc842d5a0e7c492e30e1ef71c3a72b94b0cb4be1a7300881e"},
+]
+
+[package.dependencies]
+streamlit = ">=0.63"
+
+[[package]]
 name = "streamlit-option-menu"
 version = "0.3.6"
 description = "streamlit-option-menu is a simple Streamlit component that allows users to select a single item from a list of options in a menu."
@@ -3461,4 +3475,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.9.7 || >3.9.7,<4.0"
-content-hash = "94f63df8ad7f717cde26ea65814b3ab0b2eea999fac17b2257c07d269d4a3479"
+content-hash = "3f840c0a24e190879861d1614aed29e5bd3d2429588ead2192dc433adc17a591"

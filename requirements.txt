@@ -1413,6 +1413,9 @@ sqlalchemy==2.0.23 ; python_version >= "3.9" and python_full_version != "3.9.7" 
 starlette==0.20.4 ; python_version >= "3.9" and python_full_version != "3.9.7" and python_version < "4.0" \
     --hash=sha256:42fcf3122f998fefce3e2c5ad7e5edbf0f02cf685d646a83a08d404726af5084 \
     --hash=sha256:c0414d5a56297d37f3db96a84034d61ce29889b9eaccf65eb98a0b39441fcaa3
+streamlit-chat==0.1.1 ; python_version >= "3.9" and python_full_version != "3.9.7" and python_version < "4.0" \
+    --hash=sha256:bec918a6ff9d24fbc842d5a0e7c492e30e1ef71c3a72b94b0cb4be1a7300881e \
+    --hash=sha256:e5911c8e3d5bbdd444782a0eb46a5f0cf24247124eb165bcc2e759540767ac3c
 streamlit-option-menu==0.3.6 ; python_version >= "3.9" and python_full_version != "3.9.7" and python_version < "4.0" \
     --hash=sha256:4f02faadf4d1d1e9a00c3740a2ebd8a3f105a2cdf63fdc0e34cf01ef7267e9de \
     --hash=sha256:d051af217ff1e4513e2cc6f3c79ccd4b34d77390b16c34711032e998d41e9850
