@@ -100,7 +100,7 @@ def main():
                 # 文章のベクトル化
                 index = VectorstoreIndexCreator(
                     vectorstore_cls=Chroma,
-                    embedding=OpenAIEmbeddings(model="gpt-3.5-turbo"),
+                    embedding=OpenAIEmbeddings(),
                 ).from_documents(docs)
 
                 if chat_name not in st.session_state:
@@ -113,7 +113,7 @@ def main():
                 with container:
                     # メッセージ入力とメッセージ送信ボタンの実装
                     with st.form(key='my_form', clear_on_submit=True):
-                        user_input = st.text_area(label='Message: ', key='input', height=100)
+                        user_input = st.text_area(label='Message(できるだけ英語で入力してください): ', key='input', height=100)
                         submit_button = st.form_submit_button(label='送信')
 
                     if submit_button and user_input:
@@ -146,7 +146,9 @@ def main():
 
                         if post_response.status_code == 200:
                             with st.spinner('ChatGPT is typing ...'):
-                                pdf_response = index.query(user_input)
+                                # インスタンスを作成
+                                llm = ChatOpenAI(temperature=0.0, model="gpt-3.5-turbo-1106")
+                                pdf_response = index.query(user_input, llm=llm)
 
                             # チャット内容の保持
                             st.session_state[chat_name].append(AIMessage(content=pdf_response))
