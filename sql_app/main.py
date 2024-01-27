@@ -36,7 +36,8 @@ def read_sessions(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)
 # チャットメッセージをDBに登録
 @app.post("/chat_messages/", response_model=schemas.ChatMessage)
 def create_message(message: schemas.ChatMessageCreate, db: Session = Depends(get_db)):
-    return crud.create_chat_message(db, message=message)
+    db_messages = crud.create_chat_message(db, message=message)
+    return db_messages
 
 # チャットメッセージの取得
 @app.get("/chat_messages/{session_id}", response_model=List[schemas.ChatMessage])
@@ -75,7 +76,8 @@ async def create_file_item(
     
     # データベースにファイル情報を保存
     file_item = schemas.FileItemCreate(name=name, description=description, original_name=file.filename, file_path=file_location)
-    return crud.create_file_item(db=db, file_item=file_item, file_path=file_location, original_name=file.filename)
+    db_file_item = crud.create_file_item(db=db, file_item=file_item, file_path=file_location, original_name=file.filename)
+    return db_file_item
 
 # アップロードされたファイルデータを全て取得
 @app.get("/file_items/", response_model=list[schemas.FileItem])
