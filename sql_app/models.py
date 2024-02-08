@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from datetime import datetime
 from .database import Base
 
 # チャット履歴のデータモデルを定義するクラス
@@ -31,7 +30,7 @@ class FileItem(Base):
     __tablename__ = 'file_items'
 
     id = Column(Integer, primary_key=True, index=True)
-    date = Column(DateTime, default=datetime.utcnow)
+    date = Column(DateTime(timezone=True), server_default=func.now())
     name = Column(String, index=True)
     description = Column(String)
     file_path = Column(String)
