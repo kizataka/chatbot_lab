@@ -30,7 +30,7 @@ class FileItem(Base):
     __tablename__ = 'file_items'
 
     id = Column(Integer, primary_key=True)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    date = Column(DateTime(timezone=True), server_default=func.now())
     name = Column(String, index=True)
     description = Column(String)
     file_path = Column(String)

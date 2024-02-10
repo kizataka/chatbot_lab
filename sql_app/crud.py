@@ -41,7 +41,7 @@ def delete_chat_session(db: Session, session_id: int):
     
 # ファイルアイテムを作成する関数
 def create_file_item(db: Session, file_item: schemas.FileItemCreate, file_path: str, original_name: str):
-    db_item = models.FileItem(name=file_item.name, description=file_item.description, created_at=datetime.now(), file_path=file_path, original_name=original_name)
+    db_item = models.FileItem(name=file_item.name, description=file_item.description, date=datetime.now(), file_path=file_path, original_name=original_name)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
