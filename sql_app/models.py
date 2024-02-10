@@ -1,13 +1,13 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func  # SQLの関数をpythonコード内で使用できるようにする
 from .database import Base
 
 # チャット履歴のデータモデルを定義するクラス
 class ChatSession(Base):
     __tablename__ = 'chat_sessions'
     
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     chat_name = Column(String, unique=True, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
@@ -17,7 +17,7 @@ class ChatSession(Base):
 class ChatMessage(Base):
     __tablename__ = 'chat_messages'
     
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     session_id = Column(Integer, ForeignKey('chat_sessions.id'))
     content = Column(Text)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
@@ -29,7 +29,7 @@ class ChatMessage(Base):
 class FileItem(Base):
     __tablename__ = 'file_items'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     date = Column(DateTime(timezone=True), server_default=func.now())
     name = Column(String, index=True)
     description = Column(String)
