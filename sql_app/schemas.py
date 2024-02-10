@@ -41,7 +41,7 @@ class FileItemCreate(BaseModel):
 # ファイルアイテムの読み取り用スキーマ
 class FileItem(BaseModel):
     id: int
-    date: datetime
+    created_at: datetime
     name: str
     description: str
     file_path: str
