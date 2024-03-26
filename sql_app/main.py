@@ -65,14 +65,14 @@ async def create_file_item(
     db: Session = Depends(get_db)
 ):
     # # ローカルのDBにファイルを保存
-    # file_location = f'files_{file.filename}'
-    # with open(file_location, 'wb') as file_object:
-    #     file_object.write(await file.read())
-
-    # Render.comのディスク内にファイルを保存
-    file_location = f'/var/lib/data/files_{file.filename}'
+    file_location = f'files_{file.filename}'
     with open(file_location, 'wb') as file_object:
         file_object.write(await file.read())
+
+    # Render.comのディスク内にファイルを保存
+    # file_location = f'/var/lib/data/files_{file.filename}'
+    # with open(file_location, 'wb') as file_object:
+    #     file_object.write(await file.read())
     
     # データベースにファイル情報を保存
     file_item = schemas.FileItemCreate(name=name, description=description, original_name=file.filename, file_path=file_location)
