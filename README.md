@@ -7,9 +7,6 @@
 [![Poetry](https://img.shields.io/badge/Poetry-gray?logo=Poetry&logoColor=60A5FA)](https://python-poetry.org/)
 
 ## 概要 
-### ▼ サイトURL  
-https://chatbot-for-lab.onrender.com  
-
 ### ▼ 紹介記事(Qiita)
 開発の経緯について以下の記事に詳細にまとめました。  
 [大規模言語モデルLLMを活用したアプリ開発に挑戦！](https://qiita.com/kizataka/items/dfc26096a2248403964b)
